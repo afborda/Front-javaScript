@@ -1,7 +1,8 @@
-$("#cepUser").keypress(function () {
+$("#cepUser").onkeypress(function () {
   let cepValue = $("#cepUser").val();
+  console.log(cepValue);
 
-  if (cepValue.length === 8) {
+  if (cepValue.length >= 7) {
     axios
       .get(`http://api.postmon.com.br/v1/cep/${cepValue}`)
       .then((response) => {
