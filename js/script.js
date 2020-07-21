@@ -1,5 +1,3 @@
-import { teste } from "../js/scriptGit";
-
 $("#cepUser").keypress(function () {
   let cepValue = $("#cepUser").val();
 
@@ -41,4 +39,5 @@ $("form").on("submit", function (event) {
     uf: $("#ufUser").val(),
     description: $("#descriptionUser").val(),
   });
+  console.log(data);
 });
