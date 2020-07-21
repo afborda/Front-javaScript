@@ -4,24 +4,23 @@ $("form").on("submit", function (event) {
   const data = axios
     .get(`https://api.github.com/search/repositories?q=${repository}`)
     .then((response) => {
-      let tr;
-      response.data.items.forEach((v, i) => {
-        var td = document.createElement("th");
-        //th.setAttribute("scope", "row");
-
-        if (!(i % 5)) {
-          tr = document.createElement("tr");
-          document.getElementById("table0").appendChild(tr);
-        }
-        td.appendChild(document.createTextNode(v.full_name));
-        tr.appendChild(td);
-      });
-
-      $.each(response.data.items, function (i, item) {
-        console.log(item.name);
-      });
+      getDataRepository(response);
     })
     .catch((error) => {
       console.log(error);
     });
 });
+
+const getDataRepository = (value) => {
+  let tr;
+  value.data.items.forEach((v, i) => {
+    var td = document.createElement("th");
+
+    if (!(i % 5)) {
+      tr = document.createElement("tr");
+      document.getElementById("table0").appendChild(tr);
+    }
+    td.appendChild(document.createTextNode(v.full_name));
+    tr.appendChild(td);
+  });
+};
