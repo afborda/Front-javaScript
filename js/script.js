@@ -41,6 +41,4 @@ $("form").on("submit", function (event) {
     uf: $("#ufUser").val(),
     description: $("#descriptionUser").val(),
   });
-
-  console.log(data);
 });
